@@ -5,16 +5,12 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Conteneur principal */
 .cv-container {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   overflow: hidden;
 }
-
-/* Section gauche */
 .left-section {
   background-color: #f1e9e0;
   color: #333;
@@ -33,16 +29,12 @@ body {
 .profile-img:hover {
   transform: scale(1.05);
 }
-
-/* Titres de section */
 .section-title {
   border-left: 4px solid #c9b89a;
   padding-left: 10px;
   font-weight: 600;
   color: #4a403a;
 }
-
-/* Grilles */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -63,7 +55,6 @@ body {
   background-color: #e5d3c0;
 }
 
-/* Animation douce */
 .fade-in {
   animation: fadeIn 1.2s ease-in-out;
 }
@@ -73,10 +64,10 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .left-section {
     border-right: none;
     border-bottom: 2px solid #e0d6ca;
   }
 }
+
