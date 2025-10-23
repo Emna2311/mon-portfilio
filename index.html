@@ -4,112 +4,180 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - Emna Mansouri</title>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    .cv-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #1B3B6F;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(27,59,111,0.5);
+    }
+    h2, h3 {
+      color: #1B3B6F;
+    }
+    .section-title {
+      border-bottom: 2px solid #1B3B6F;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .info-item {
+      margin-bottom: 8px;
+    }
+    .skills span {
+      display: inline-block;
+      background-color: #1B3B6F;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 25px;
+      margin: 4px 4px 4px 0;
+      font-size: 0.9em;
+    }
+    .experience, .education {
+      margin-bottom: 25px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .btn-pdf {
+      background-color: #1B3B6F;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn-pdf:hover {
+      background-color: #163060;
+    }
+    @media (max-width: 768px) {
+      .d-flex.align-items-center {
+        flex-direction: column;
+        text-align: center;
+      }
+      .photo {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="cv-container" id="cv">
+    
+    <button class="btn-pdf" onclick="downloadPDF()">Télécharger en PDF</button>
 
-  <div class="container cv-container my-5" id="cv-content">
-    <div class="row">
-   
-      <div class="col-md-4 left-section text-center p-4">
-        <img src="photo.jpg" alt="Photo Emna Mansouri" class="profile-img mb-3">
-        <h2 class="fw-bold">Emna Mansouri</h2>
-        <h5 class="text-muted">Étudiante en technologie de l'informatique</h5>
-        <p class="mt-2"><i class="bi bi-geo-alt"></i> ISET Tozeur</p>
-        <p><i class="bi bi-telephone"></i> 98 659 422</p>
-        <p><i class="bi bi-envelope"></i> emnamansouri15@gmail.com</p>
-        <hr>
-        <h5 class="fw-semibold mt-4">Langues</h5>
-        <ul class="list-unstyled mt-3">
-          <li>Arabe – Natif</li>
-          <li>Français – Courant</li>
-          <li>Anglais – Intermédiaire</li>
-        </ul>
+    
+    <div class="d-flex align-items-center mb-4">
+      <img src="photo-emna.png" alt="Emna Mansouri" class="photo me-4">
+      <div>
+        <h2>Emna Mansouri</h2>
+        <p>Étudiante en technologie de l'informatique</p>
+        <p>📍 ISET Tozeur</p>
+        <p>📞 98 659 422 | 📧 emnamansouri15@gmail.com</p>
       </div>
+    </div>
 
-      <div class="col-md-8 right-section p-4">
-        
-       
-        <section class="mb-4 fade-in">
-          <h4 class="section-title">Présentation</h4>
-          <p>
-            Étudiante motivée en développement systèmes d’information, passionnée par les nouvelles technologies et la programmation. 
-            Sérieuse, autonome et dotée d’un bon esprit d’équipe, je cherche à développer mes compétences dans des projets concrets liés au web et aux applications dynamiques.
-          </p>
-        </section>
+    
+    <div class="mb-4">
+      <h3 class="section-title">Profil</h3>
+      <p>Étudiante motivée en développement systèmes d’information, passionnée par les nouvelles technologies et la programmation. Sérieuse, autonome et dotée d’un bon esprit d’équipe, je cherche à développer mes compétences dans des projets concrets liés au web et aux applications dynamiques.</p>
+    </div>
 
-        <section class="mb-4 fade-in">
-          <h4 class="section-title">Compétences techniques</h4>
-          <div class="skills-grid">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>MySQL</span>
-            <span>Python</span>
-          </div>
-        </section>
-
-       
-        <section class="mb-4 fade-in">
-          <h4 class="section-title">Soft Skills</h4>
-          <div class="skills-grid">
-            <span>Travail en équipe</span>
-            <span>Organisation</span>
-            <span>Autonomie</span>
-            <span>Curiosité</span>
-          </div>
-        </section>
-
-        <section class="mb-4 fade-in">
-          <h4 class="section-title">Expérience professionnelle</h4>
-          <div class="exp-item">
-            <h6 class="fw-bold">Stagiaire en informatique – BNA (Ben Arous)</h6>
-            <p class="text-muted">01/01/2025 – 30/01/2025</p>
-            <p><strong>Projet :</strong> gestion des transferts via le système MoneyGram.<br>
-            Découverte de l’environnement bancaire, suivi du processus de transfert d’argent, collaboration avec l’équipe.</p>
-          </div>
-        </section>
-
-        <section class="mb-4 fade-in">
-          <h4 class="section-title">Formation</h4>
-          <p><strong>ISET Tozeur</strong> – Licence appliquée en technologie de l'information<br>
-          <em>Spécialité :</em> développement systèmes d’information</p>
-          <p><strong>Projet Python</strong> – 23/04/2025</p>
-        </section>
-
+    
+    <div class="mb-4">
+      <h3 class="section-title">Compétences techniques</h3>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>MySQL</span>
+        <span>Python</span>
       </div>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="section-title">Soft Skills</h3>
+      <div class="skills">
+        <span>Travail en équipe</span>
+        <span>Organisation</span>
+        <span>Autonomie</span>
+        <span>Curiosité</span>
+      </div>
+    </div>
+
+    
+    <div class="experience mb-4">
+      <h3 class="section-title">Expérience professionnelle</h3>
+      <p><strong>Stagiaire en informatique – BNA (Ben Arous)</strong></p>
+      <p>01/01/2025 – 30/01/2025</p>
+      <ul>
+        <li>Projet : gestion des transferts via le système MoneyGram</li>
+        <li>Découverte de l’environnement bancaire et suivi du processus de transfert d’argent</li>
+        <li>Collaboration avec l’équipe et participation aux tâches opérationnelles</li>
+      </ul>
+    </div>
+
+    
+    <div class="education mb-4">
+      <h3 class="section-title">Formation</h3>
+      <p><strong>ISET Tozeur – Licence appliquée en technologie de l'information</strong></p>
+      <p>Spécialité : développement systèmes d’information</p>
+      <p>Projet Python – 23/04/2025</p>
+    </div>
+
+    
+    <div class="mb-4">
+      <h3 class="section-title">Langues</h3>
+      <ul>
+        <li>Arabe (Natif)</li>
+        <li>Français (Courant)</li>
+        <li>Anglais (Intermédiaire)</li>
+      </ul>
     </div>
   </div>
 
-  <div class="text-center mb-5">
-    <button id="download-btn" class="btn btn-primary px-4 py-2">
-      <i class="bi bi-download"></i> Télécharger en PDF
-    </button>
-  </div>
-
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
   <script>
-    document.getElementById('download-btn').addEventListener('click', async () => {
+    function downloadPDF() {
       const { jsPDF } = window.jspdf;
-      const cv = document.getElementById('cv-content');
-
-      const canvas = await html2canvas(cv, { scale: 2 });
-      const imgData = canvas.toDataURL('image/png');
-
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save('CV_Emna_Mansouri.pdf');
-    });
+      var doc = new jsPDF('p', 'pt', 'a4');
+      doc.html(document.getElementById("cv"), {
+        callback: function (doc) {
+          doc.save("CV_Emna_Mansouri.pdf");
+        },
+        margin: [20, 20, 20, 20],
+        autoPaging: 'text',
+        x: 10,
+        y: 10,
+        html2canvas: { scale: 0.6 }
+      });
+    }
   </script>
-
 </body>
 </html>
+
